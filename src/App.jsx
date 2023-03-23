@@ -20,6 +20,7 @@ const Container = styled.div`
   }
   font-family: 'Gallient', sans-serif;
   font-size: 1rem;
+  font-weight: 900;
   background: url('./img/bg.jpg');
   background-size: cover;
   background-position: center;
@@ -30,7 +31,6 @@ const Container = styled.div`
 `
 
 function App() {
-
   return (
     <div>
       <Container>
