@@ -1,5 +1,5 @@
 import { Contact } from './components/Contact'
-import { Info } from './components/Info'
+import { About } from './components/About'
 import { Projects } from './components/Projects'
 import { User } from './components/User'
 import styled from 'styled-components'
@@ -35,7 +35,7 @@ function App() {
     <div>
       <Container>
         <User />
-        <Info />
+        <About />
         <Projects />
         <Contact />
       </Container>
