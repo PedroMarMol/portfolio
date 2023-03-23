@@ -36,6 +36,7 @@ const Icons = styled.div`
   display: flex;
   justify-content: end;
   gap: 2vw;
+  margin: 1vw 0;
 `
 const Icon = styled.img`
   width: 1.3em;

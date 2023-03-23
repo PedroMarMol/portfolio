@@ -21,7 +21,9 @@ const Container = styled.div`
   font-family: 'Gallient', sans-serif;
   font-size: 1rem;
   background: url('./img/bg.jpg');
-  background-size: 100%;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
   &::-webkit-scrollbar{
     display: none;
   }
