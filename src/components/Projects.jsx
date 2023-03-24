@@ -5,7 +5,7 @@ const listData = [
   'Development',
   'Product Design',
   'Web Design',
-  'Software Development',
+  'Software Dev',
 ]
 
 const Section = styled.div`
@@ -16,7 +16,8 @@ const Section = styled.div`
 `
 
 const Container = styled.div`
-  width: 1400px;
+  height: 100vh;
+  width: 64vw;
   display: flex;
   justify-content: space-between;
 `
@@ -34,11 +35,34 @@ const List = styled.ul`
 `
 
 const ListItem = styled.li`
-  font-size: 100px;
+  font-size: 90px;
   font-weight: bold;
   cursor: pointer;
   color: transparent;
   -webkit-text-stroke: 1px #583e23;
+  position: relative;
+
+  ::after {
+    content: '${(props)=>props.text}';
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #73685B;
+    width: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &:hover {
+    ::after{
+      animation: textFade 0.3s linear both;
+      @keyframes textFade {
+        to {
+          width: 100%;
+        }
+      }
+    }
+  }
 `
 
 const ImageContainer = styled.div`
@@ -53,7 +77,7 @@ export const Projects = () => {
         <Info>
           <List>
             {listData.map(item=>(
-            <ListItem key={item}>{item}</ListItem>
+            <ListItem key={item} text={item}>{item}</ListItem>
             ))}
           </List>
         </Info>
