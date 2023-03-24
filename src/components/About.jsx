@@ -19,6 +19,9 @@ const Container = styled.div`
 
 const Info = styled.div`
   flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 `
 const Title = styled.h1`
   font-size: 4.6rem;
@@ -35,7 +38,7 @@ const Subtitle = styled.h2`
   color: #25A372;
 `
 const Desc = styled.p`
-  font-size: 1.6rem;
+  font-size: 2rem;
 `
 const Button = styled.button`
   max-width: 8rem;

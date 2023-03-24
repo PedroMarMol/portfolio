@@ -20,6 +20,11 @@ const Container = styled.div`
   width: 64vw;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 768px) { ${'' /* needs a fix when animation is added */}
+    width: 100vw;
+    margin: 0 -5rem 0 5rem;
+  }
 `
 
 const Info = styled.div`
@@ -29,18 +34,24 @@ const Info = styled.div`
 `
 const List = styled.ul`
   list-style: none;
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.2rem;
 `
 
 const ListItem = styled.li`
-  font-size: 90px;
+  max-width: 100vw;
+  font-size: 5vw;
   font-weight: bold;
   cursor: pointer;
   color: transparent;
   -webkit-text-stroke: 1px #583e23;
   position: relative;
+
+  @media (max-width: 768px) {
+   font-size: 3.7vh;  ${'' /* needs a fix when animation is added */}
+  }
 
   ::after {
     content: '${(props)=>props.text}';
@@ -48,7 +59,7 @@ const ListItem = styled.li`
     top: 0;
     left: 0;
     color: #73685B;
-    width: 0px;
+    width: 0rem;
     overflow: hidden;
     white-space: nowrap;
   }

@@ -41,9 +41,11 @@ const Line = styled.img`
 `
 const Subtitle = styled.h2`
   color: #25A372;
+  font-size: 1.8rem;
 `
 const Desc = styled.p`
-  font-size: 1.6rem;
+  font-size: 2rem;
+  ${'' /* font-family: 'ComicSans'; */}
 `
 const Button = styled.button`
   max-width: 8rem;
@@ -111,7 +113,7 @@ export const User = () => {
           <Title>Slogan personal</Title>
           <WhatWeDo>
             <Line src='./img/line.png' />
-            <Subtitle>What we do</Subtitle>
+            <Subtitle>What I do</Subtitle>
           </WhatWeDo>
           <Desc>We enjoy creating delightful, human-centered digital experiences.</Desc>
           <Button>Learn More</Button>
