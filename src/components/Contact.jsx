@@ -111,17 +111,6 @@ const ImageContainer = styled.div`
   }
 `
 
-// const projectionConfig = {
-//   rotate: [-10.0, -52.0, 0],
-//   center: [-15, 4],
-//   scale: 900
-// }
-
-// @media only screen and (max-width: 768px) {
-//   projectionConfig.center = [-5, -30];
-//   projectionConfig.scale = 500;
-// }
-
 export const Contact = () => {
   return (
     <Section>

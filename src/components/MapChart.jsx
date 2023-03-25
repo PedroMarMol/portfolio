@@ -6,28 +6,40 @@ import {
   Annotation,
   ZoomableGroup
 } from "react-simple-maps";
+import { useState, useEffect } from "react";
+
+const projectionConfig = {
+  rotate: [-10.0, -52.0, 0],
+  center: [-15, -4],
+  scale: 900
+};
 
 const MapChart = () => {
+  const [projection, setProjection] = useState(projectionConfig)
 
-  const desktopProjectionConfig = {
-    rotate: [-10.0, -52.0, 0],
-    center: [-15, -4],
-    scale: 1000
-  };
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 480) {
+        setProjection({
+          ...projectionConfig,
+          center: [-12, 0],
+          scale: 3000
+        });
+      } else {
+        setProjection(projectionConfig);
+      }
+    };
 
-  const mobileProjectionConfig = {
-    rotate: [-10.0, -52.0, 0],
-    center: [-12, -2],
-    scale: 3500
-  };
+    window.addEventListener("resize", handleResize);
 
-  const isMobile = window.innerWidth <= 480;
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <ComposableMap
       projection="geoAzimuthalEqualArea"
-      projectionConfig={isMobile ? mobileProjectionConfig : desktopProjectionConfig}
-      style={{width: '100%', height: '100vh'}}
+      projectionConfig={projection}
+      style={{width: '100%', height: '100%'}}
     >
       <Geographies
         geography="../features.json"
@@ -43,13 +55,14 @@ const MapChart = () => {
       </Geographies>
       <Annotation
         subject={[-3.60667, 37.18817]}
-        dx={-90}
-        dy={-30}
+        dx={-15}
+        dy={-15}
         connectorProps={{
           stroke: "#583e23",
           strokeWidth: 2,
           strokeLinecap: "round"
         }}
+        style={{ fontSize: "1.5rem" }}
       >
         <text x="-8" textAnchor="end" alignmentBaseline="middle" fill="#583e23">
           {"Granada"}
