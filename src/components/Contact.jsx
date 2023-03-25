@@ -1,13 +1,144 @@
 import React from 'react'
 import styled from 'styled-components'
+import MapChart from './MapChart'
 
 const Section = styled.div`
   height: 100vh;
   scroll-snap-align: center;
+  padding-left: 20rem;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 `
+
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
+`
+
+const InfoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 1;
+  position: relative;
+
+  @media (max-width: 768px) {
+    top: -30%;
+    max-width: 80vw;
+    margin: 2.5rem auto;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.1);
+
+  }
+`
+
+const Title = styled.h1`
+  font-weight: 200;
+`
+
+const Form = styled.form`
+  width: 32rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`
+
+const Input = styled.input`
+  padding: 1.2rem;
+  background-color: #e8e6e6;
+  border: none;
+  border-radius: 0.3rem;
+`
+
+const Text = styled.textarea`
+  padding: 1.2rem;
+  background-color: #e8e6e6;
+  border: none;
+  border-radius: 0.3rem;
+`
+
+const Button = styled.button`
+  width: 100%;
+  min-height: 2.2rem;
+  background-image: linear-gradient(to right, #d1c9a6 0%, #73685B  51%, #d1c9a6  100%);
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  font-family: 'Gallient', sans-serif;
+  font-size: calc(0.5vw + 1vh);
+  background-size: 350% auto;
+  color: #583E23;            
+  box-shadow: 0 0 0.5rem #d1c9a6;
+  border-radius: 10px;
+  display: block;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+
+  &:hover {
+    background-position: right center;
+    color: #583E23;
+    text-decoration: none;
+  }
+  
+`
+
+const ImageContainer = styled.div`
+  display: flex;
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  margin-top: 0;
+
+  @media (max-width: 768px) {
+    & > div {
+      height: 50%;
+    }
+  }
+`
+
+// const projectionConfig = {
+//   rotate: [-10.0, -52.0, 0],
+//   center: [-15, 4],
+//   scale: 900
+// }
+
+// @media only screen and (max-width: 768px) {
+//   projectionConfig.center = [-5, -30];
+//   projectionConfig.scale = 500;
+// }
 
 export const Contact = () => {
   return (
-    <Section>Contact</Section>
+    <Section>
+      <Container>
+        <InfoContainer>
+          <Form>
+            <Title>Contact Me</Title>
+            <Input placeholder='Name' />
+            <Input placeholder='Email' />
+            <Text placeholder='Write your message' rows={12}/>
+            <Button>Send</Button>
+          </Form>
+        </InfoContainer>
+        <ImageContainer>
+          <MapChart />
+        </ImageContainer>
+      </Container>
+    </Section>
   )
 }

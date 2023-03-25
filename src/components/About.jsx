@@ -77,7 +77,7 @@ export const About = () => {
   return (
     <Section>
       <Container>
-        <ImageContainer>{/* modelo 3D */}</ImageContainer>
+        <ImageContainer>modelo 3D arreglar</ImageContainer>
         <Info>
           <Title>Think outside the square space.</Title>
           <WhatWeDo>

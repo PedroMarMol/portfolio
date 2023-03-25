@@ -20,7 +20,7 @@ const Container = styled.div`
   color: #583E23;
 `;
 
-const Info = styled.div`
+const InfoContainer = styled.div`
   flex: 2;
   display: flex;
   flex-direction: column;
@@ -109,7 +109,7 @@ export const User = () => {
     <Section>
       <Navbar/>
       <Container>
-        <Info>
+        <InfoContainer>
           <Title>Slogan personal</Title>
           <WhatWeDo>
             <Line src='./img/line.png' />
@@ -117,7 +117,7 @@ export const User = () => {
           </WhatWeDo>
           <Desc>We enjoy creating delightful, human-centered digital experiences.</Desc>
           <Button>Learn More</Button>
-        </Info>
+        </InfoContainer>
         <ImageContainer>
           {/* modelo 3D */}
           <Img src='./img/eva01.png' />

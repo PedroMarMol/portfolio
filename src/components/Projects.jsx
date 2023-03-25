@@ -27,7 +27,7 @@ const Container = styled.div`
   }
 `
 
-const Info = styled.div`
+const InfoContainer = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
@@ -85,13 +85,13 @@ export const Projects = () => {
   return (
     <Section>
       <Container>
-        <Info>
+        <InfoContainer>
           <List>
             {listData.map(item=>(
             <ListItem key={item} text={item}>{item}</ListItem>
             ))}
           </List>
-        </Info>
+        </InfoContainer>
         <ImageContainer></ImageContainer>
       </Container>
     </Section>
