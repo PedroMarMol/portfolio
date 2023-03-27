@@ -128,10 +128,36 @@ export const Contact = () => {
       '_YiWrhRivP2bgAPpe'
     )
     .then((result) => {
-        console.log(result.text)
+        toast.success(
+          <>
+            Your message has been sent. <br /> 
+            I will contact you soon :)
+          </>,
+        {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          html: true
+        })
         setError(false)
     }, (error) => {
-        console.log(error.text)
+        toast.error(error.text,
+          {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          }
+        )
         setError(true)
     })
   }
@@ -142,10 +168,10 @@ export const Contact = () => {
           <Form ref={ref} onSubmit={handleSubmit}>
             <Title>Contact Me</Title>
             <Input placeholder='Name' name='name' />
-            <Input placeholder='Email' name='email' />
-            <Text placeholder='Write your message' name='message' rows={12}/>
+            <Input placeholder='Email' name='email' required minLength='4' />
+            <Text placeholder='Write your message' name='message' rows={12} required />
             <Button type='submit'>Send</Button>
-            { error || 'Your message has been sent. I will contact you soon :)' }
+            {/* { error || toast('Your message has been sent. I will contact you soon :)') } */}
           </Form>
         </InfoContainer>
         <ImageContainer>

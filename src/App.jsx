@@ -3,7 +3,7 @@ import { About } from './components/About'
 import { Projects } from './components/Projects'
 import { User } from './components/User'
 import styled from 'styled-components'
-
+import { ToastContainer } from 'react-toastify'
 
 const Container = styled.div`
   height: 100vh;
@@ -39,6 +39,18 @@ function App() {
         <Projects />
         <Contact />
       </Container>
+      <ToastContainer 
+        position="top-center"
+        autoClose={800}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   )
 }
