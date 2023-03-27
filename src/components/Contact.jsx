@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
 import styled from 'styled-components'
 import MapChart from './MapChart'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Section = styled.div`
   height: 100vh;
@@ -35,12 +38,11 @@ const InfoContainer = styled.div`
   @media (max-width: 768px) {
     top: -30%;
     max-width: 80vw;
-    margin: 2.5rem auto;
+    margin: 2.5rem auto 0 auto; ${'' /* change so margin-bottom: 0 isnt needed when toastify is implemented */}
     padding: 1rem;
     background-color: #ffffff;
     border-radius: 1rem;
     box-shadow: 0 0 1rem rgba(0,0,0,0.1);
-
   }
 `
 
@@ -93,7 +95,6 @@ const Button = styled.button`
     color: #583E23;
     text-decoration: none;
   }
-  
 `
 
 const ImageContainer = styled.div`
@@ -111,17 +112,40 @@ const ImageContainer = styled.div`
   }
 `
 
+
 export const Contact = () => {
+  const ref = useRef()
+  const [error, setError] = useState(true)
+  
+  const handleSubmit = (event) => {
+    event.preventDefault()
+  
+    emailjs
+    .sendForm(
+      'service_v661osb',
+      'template_8ow4dn9',
+      ref.current,
+      '_YiWrhRivP2bgAPpe'
+    )
+    .then((result) => {
+        console.log(result.text)
+        setError(false)
+    }, (error) => {
+        console.log(error.text)
+        setError(true)
+    })
+  }
   return (
     <Section>
       <Container>
         <InfoContainer>
-          <Form>
+          <Form ref={ref} onSubmit={handleSubmit}>
             <Title>Contact Me</Title>
-            <Input placeholder='Name' />
-            <Input placeholder='Email' />
-            <Text placeholder='Write your message' rows={12}/>
-            <Button>Send</Button>
+            <Input placeholder='Name' name='name' />
+            <Input placeholder='Email' name='email' />
+            <Text placeholder='Write your message' name='message' rows={12}/>
+            <Button type='submit'>Send</Button>
+            { error || 'Your message has been sent. I will contact you soon :)' }
           </Form>
         </InfoContainer>
         <ImageContainer>
