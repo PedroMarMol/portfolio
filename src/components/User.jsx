@@ -125,13 +125,14 @@ const Img = styled.img`
 `
 
 export const User = () => {
-
   // Sphere arguments for larger screens
   const sphereArgsLarge = [1, 100, 200]
   // Sphere arguments for smaller screens
   const sphereArgsSmall = [0.4, 50, 100]
+  // Check the initial screen size so the Sphere is well displayed
+  const initialScreenSize = (window.innerWidth <= 768) ? sphereArgsSmall : sphereArgsLarge
 
-  const [adaptativeSize, setAdaptativeSize] = useState(sphereArgsLarge)
+  const [adaptativeSize, setAdaptativeSize] = useState(initialScreenSize)
   const [cameraPosition, setCameraPosition] = useState([5, 5, 5])
 
   const handleResize = useCallback(() => {
