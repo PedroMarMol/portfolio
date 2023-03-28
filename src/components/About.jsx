@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Test } from './Test';
 
 const Section = styled.div`
   height: 100vh;
@@ -77,7 +78,9 @@ export const About = () => {
   return (
     <Section>
       <Container>
-        <ImageContainer>modelo 3D arreglar</ImageContainer>
+        <ImageContainer>
+          <Test />
+        </ImageContainer>
         <Info>
           <Title>Think outside the square space.</Title>
           <WhatWeDo>
