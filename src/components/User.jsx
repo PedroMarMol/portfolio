@@ -1,6 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
 import Navbar from './Navbar'
+import { MeshDistortMaterial, Sphere, OrbitControls } from '@react-three/drei'
+import { Canvas } from '@react-three/fiber'
+
+// arguments for larger screens
+const sphereArgsLarge = [1, 100, 200]
+
+// arguments for smaller screens
+const sphereArgsSmall = [0.4, 50, 100]
+
+// Use media queries to set the args property of the Sphere component
+const SphereComponent = ({ isSmallScreen }) => {
+  const args = isSmallScreen ? sphereArgsSmall : sphereArgsLarge
+  
+  return (
+    <Sphere args={args} scale={1}>
+      <MeshDistortMaterial 
+        color='#726ee7'
+        attach='material'
+        distort={0.65}
+        speed={2}
+        transparent={true}
+        opacity={0.3}
+      />
+    </Sphere>
+  )
+}
 
 const Section = styled.div`
   height: 100vh;
@@ -11,7 +37,7 @@ const Section = styled.div`
   justify-content: space-between;
 `
 const Container = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 64vw;
   scroll-snap-align: center;
   display: flex;
@@ -74,12 +100,34 @@ const Button = styled.button`
 const ImageContainer = styled.div`
   flex: 3;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 0;
 `
+
+const AnimationContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -2;
+  @media (max-width: 768px) {
+    position: absolute;
+    width: 100vw;
+    top: 13rem;
+    left: -12rem;
+  }
+`
+
 const Img = styled.img`
   width: 50rem;
   height: 37rem;
   object-fit: contain;
+  z-index: -1;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -90,10 +138,9 @@ const Img = styled.img`
 
   @media (max-width: 768px) {
     position: absolute;
-    width: 13rem;
-    top: 10rem;
+    width: 12rem;
+    top: 25rem;
     left: -5rem;
-    z-index: -1;
   }
 
   @keyframes eva01 {
@@ -103,8 +150,9 @@ const Img = styled.img`
   }
 `
 
-
 export const User = () => {
+  const isSmallScreen = window.innerWidth <= 768;
+  
   return (
     <Section>
       <Navbar/>
@@ -119,7 +167,14 @@ export const User = () => {
           <Button>Learn More</Button>
         </InfoContainer>
         <ImageContainer>
-          {/* modelo 3D */}
+          <AnimationContainer>
+            <Canvas camera={{ fov: 25, position: [5, 5, 5] }}>
+              <OrbitControls enableZoom={false} />
+              <ambientLight intensity={1} />
+              <directionalLight position={[3, 2, 1]} />
+              <SphereComponent isSmallScreen={isSmallScreen} />
+            </Canvas>
+          </AnimationContainer>
           <Img src='./img/eva01.png' />
         </ImageContainer>
       </Container>

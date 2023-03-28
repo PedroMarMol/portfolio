@@ -4,7 +4,6 @@ import { Projects } from './components/Projects'
 import { User } from './components/User'
 import styled from 'styled-components'
 import { ToastContainer } from 'react-toastify'
-import { Test } from './components/Test'
 
 const Container = styled.div`
   height: 100vh;
@@ -39,7 +38,6 @@ function App() {
         <About />
         <Projects />
         <Contact />
-        <Test />
       </Container>
       <ToastContainer 
         position="top-center"

@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import styled from 'styled-components'
-import { Test } from './Test';
+import { OrbitControls } from "@react-three/drei"
+import { Canvas } from "@react-three/fiber"
+import Octahedron from "./Octahedron"
 
 const Section = styled.div`
   height: 100vh;
@@ -16,7 +18,7 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   color: #583E23;
-`;
+`
 
 const Info = styled.div`
   flex: 1;
@@ -79,7 +81,14 @@ export const About = () => {
     <Section>
       <Container>
         <ImageContainer>
-          <Test />
+          <Canvas camera={{ position: [5, 5, 5], fov: 25 }}>
+            <Suspense fallback={null}>
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[3, 2, 1]} />
+              <Octahedron />
+              <OrbitControls enableZoom={false} autoRotate />
+            </Suspense>
+          </Canvas>
         </ImageContainer>
         <Info>
           <Title>Think outside the square space.</Title>
