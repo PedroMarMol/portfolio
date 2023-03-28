@@ -1,32 +1,13 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Navbar from './Navbar'
 import { MeshDistortMaterial, Sphere, OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 
-// arguments for larger screens
+// Sphere arguments for larger screens
 const sphereArgsLarge = [1, 100, 200]
-
-// arguments for smaller screens
+// Sphere arguments for smaller screens
 const sphereArgsSmall = [0.4, 50, 100]
-
-// Use media queries to set the args property of the Sphere component
-const SphereComponent = ({ isSmallScreen }) => {
-  const args = isSmallScreen ? sphereArgsSmall : sphereArgsLarge
-  
-  return (
-    <Sphere args={args} scale={1}>
-      <MeshDistortMaterial 
-        color='#726ee7'
-        attach='material'
-        distort={0.65}
-        speed={2}
-        transparent={true}
-        opacity={0.3}
-      />
-    </Sphere>
-  )
-}
 
 const Section = styled.div`
   height: 100vh;
@@ -151,8 +132,19 @@ const Img = styled.img`
 `
 
 export const User = () => {
-  const isSmallScreen = window.innerWidth <= 768;
-  
+  const [adaptativeSize, setAdaptativeSize] = useState(sphereArgsLarge)
+
+  useEffect(() => {
+    const handleResize = () => {
+      (window.innerWidth <= 480) ? 
+        setAdaptativeSize(sphereArgsSmall) 
+        : setAdaptativeSize(sphereArgsLarge)
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
   return (
     <Section>
       <Navbar/>
@@ -172,7 +164,16 @@ export const User = () => {
               <OrbitControls enableZoom={false} />
               <ambientLight intensity={1} />
               <directionalLight position={[3, 2, 1]} />
-              <SphereComponent isSmallScreen={isSmallScreen} />
+              <Sphere args={adaptativeSize} scale={1}>
+                <MeshDistortMaterial 
+                  color='#726ee7'
+                  attach='material'
+                  distort={0.65}
+                  speed={2}
+                  transparent={true}
+                  opacity={0.3}
+                />
+              </Sphere>
             </Canvas>
           </AnimationContainer>
           <Img src='./img/eva01.png' />
