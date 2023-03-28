@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import styled from 'styled-components'
 import Navbar from './Navbar'
 import { MeshDistortMaterial, Sphere, OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-
-// Sphere arguments for larger screens
-const sphereArgsLarge = [1, 100, 200]
-// Sphere arguments for smaller screens
-const sphereArgsSmall = [0.4, 50, 100]
 
 const Section = styled.div`
   height: 100vh;
@@ -91,22 +86,20 @@ const AnimationContainer = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 2vh;
+  left: 5vw;
   z-index: -2;
   @media (max-width: 768px) {
     position: absolute;
     width: 100vw;
-    top: 13rem;
-    left: -12rem;
+    top: 27vh;
+    left: -49vw;
   }
 `
 
 const Img = styled.img`
-  width: 50rem;
-  height: 37rem;
+  width: 50vw;
+  height: 65vh;
   object-fit: contain;
   z-index: -1;
   position: absolute;
@@ -119,9 +112,9 @@ const Img = styled.img`
 
   @media (max-width: 768px) {
     position: absolute;
-    width: 12rem;
-    top: 25rem;
-    left: -5rem;
+    width: 45vw;
+    top: 50vh;
+    left: -20vw;
   }
 
   @keyframes eva01 {
@@ -132,19 +125,30 @@ const Img = styled.img`
 `
 
 export const User = () => {
+
+  // Sphere arguments for larger screens
+  const sphereArgsLarge = [1, 100, 200]
+  // Sphere arguments for smaller screens
+  const sphereArgsSmall = [0.4, 50, 100]
+
   const [adaptativeSize, setAdaptativeSize] = useState(sphereArgsLarge)
+  const [cameraPosition, setCameraPosition] = useState([5, 5, 5])
 
-  useEffect(() => {
-    const handleResize = () => {
-      (window.innerWidth <= 480) ? 
-        setAdaptativeSize(sphereArgsSmall) 
-        : setAdaptativeSize(sphereArgsLarge)
+  const handleResize = useCallback(() => {
+    if (window.innerWidth <= 768) {
+      setAdaptativeSize(sphereArgsSmall);
+      setCameraPosition([5, 2, 5]);
+    } else {
+      setAdaptativeSize(sphereArgsLarge);
+      setCameraPosition([5, 5, 5]);
     }
-
+  }, [setAdaptativeSize, setCameraPosition]);
+  
+  useEffect(() => {
     window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [handleResize]);
 
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
   return (
     <Section>
       <Navbar/>
@@ -160,7 +164,7 @@ export const User = () => {
         </InfoContainer>
         <ImageContainer>
           <AnimationContainer>
-            <Canvas camera={{ fov: 25, position: [5, 5, 5] }}>
+            <Canvas camera={{ fov: 25, position: cameraPosition }}>
               <OrbitControls enableZoom={false} />
               <ambientLight intensity={1} />
               <directionalLight position={[3, 2, 1]} />
