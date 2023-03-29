@@ -38,7 +38,7 @@ const InfoContainer = styled.div`
   @media (max-width: 768px) {
     top: -30%;
     max-width: 80vw;
-    margin: 2.5rem auto 0 auto; ${'' /* change so margin-bottom: 0 isnt needed when toastify is implemented */}
+    margin: 2.5rem auto;
     padding: 1rem;
     background-color: #ffffff;
     border-radius: 1rem;
@@ -171,7 +171,6 @@ export const Contact = () => {
             <Input placeholder='Email' name='email' required minLength='4' />
             <Text placeholder='Write your message' name='message' rows={12} required />
             <Button type='submit'>Send</Button>
-            {/* { error || toast('Your message has been sent. I will contact you soon :)') } */}
           </Form>
         </InfoContainer>
         <ImageContainer>
