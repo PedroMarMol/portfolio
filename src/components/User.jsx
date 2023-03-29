@@ -43,10 +43,10 @@ const Line = styled.img`
 `
 const Subtitle = styled.h2`
   color: #25A372;
-  font-size: 1.8rem;
+  font-size: 2rem;
 `
 const Desc = styled.p`
-  font-size: 2rem;
+  font-size: 1.8rem;
   ${'' /* font-family: 'ComicSans'; */}
 `
 const Button = styled.button`
@@ -137,18 +137,18 @@ export const User = () => {
 
   const handleResize = useCallback(() => {
     if (window.innerWidth <= 768) {
-      setAdaptativeSize(sphereArgsSmall);
-      setCameraPosition([5, 2, 5]);
+      setAdaptativeSize(sphereArgsSmall)
+      setCameraPosition([5, 2, 5])
     } else {
-      setAdaptativeSize(sphereArgsLarge);
-      setCameraPosition([5, 5, 5]);
+      setAdaptativeSize(sphereArgsLarge)
+      setCameraPosition([5, 5, 5])
     }
-  }, [setAdaptativeSize, setCameraPosition]);
+  }, [setAdaptativeSize, setCameraPosition])
   
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [handleResize]);
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [handleResize])
 
   return (
     <Section>
