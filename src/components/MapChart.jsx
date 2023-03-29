@@ -8,32 +8,37 @@ import {
 } from "react-simple-maps";
 import { useState, useEffect } from "react";
 
-const projectionConfig = {
-  rotate: [-10.0, -52.0, 0],
-  center: [-15, -4],
-  scale: 900
-};
-
 const MapChart = () => {
-  const [projection, setProjection] = useState(projectionConfig)
+  // map configuration for larger screens
+  const mapLargeScreen = {
+    rotate: [-10.0, -52.0, 0],
+    center: [-15, -4],
+    scale: 900
+  }
+  // map configuration for phone screens
+  const mapSmallScreen = {
+    rotate: [-10.0, -52.0, 0],
+    center: [-12, 0],
+    scale: 3000
+  }
+  // Check the initial screen size so the Sphere is well displayed
+  const initialScreenSize = (window.innerWidth <= 768) ? mapSmallScreen : mapLargeScreen
+
+  const [projection, setProjection] = useState(initialScreenSize)
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 480) {
-        setProjection({
-          ...projectionConfig,
-          center: [-12, 0],
-          scale: 3000
-        });
+      if (window.innerWidth <= 768) {
+        setProjection(mapSmallScreen)
       } else {
-        setProjection(projectionConfig);
+        setProjection(mapLargeScreen)
       }
-    };
+    }
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize)
 
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   return (
     <ComposableMap
