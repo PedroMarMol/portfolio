@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link, animateScroll as scroll} from 'react-scroll'
 
 const Section = styled.div`
   display: flex;
   justify-content: center;
+  max-height: 6rem;
 `
 const Container = styled.div`
   width: 100vw;
@@ -11,6 +13,7 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1vh 1vw;
+  font-size: 1.4rem;
 `
 
 const Links = styled.div`
@@ -20,14 +23,15 @@ const Links = styled.div`
 `
 
 const Logo = styled.img`
-  height: 23%;
-  width: 23%;
-  margin: -4vh -6.5vw -4vh -2vw;
+  height: 25%;
+  width: 25%;
+  margin: -2vh -7vw -4vh -2vw;
 ` 
 const List = styled.ul`
   display: flex;
   gap: 2vw;
   list-style: none;
+  margin: -20px 0;
 `
 const ListItem = styled.li`
   cursor: pointer;
@@ -50,8 +54,8 @@ const Button = styled.button`
   background-image: linear-gradient(to right, #d1c9a6 0%, #73685B  51%, #d1c9a6  100%);
   margin-right: 1rem;
   text-align: center;
-  text-transform: uppercase;
   transition: 0.5s;
+  font-weight: 900;
   font-family: 'Gallient', sans-serif;
   font-size: calc(0.5vw + 1vh);
   background-size: 350% auto;
@@ -73,17 +77,61 @@ const Navbar = () => {
     <Section>
       <Container>
         <Links>
-          <Logo src="../img/logo.png" />
+          <Logo src='../img/logo.png' />
           <List>
-            <ListItem>Home</ListItem>
-            <ListItem>Studio</ListItem>
-            <ListItem>Works</ListItem>
-            <ListItem>Contact</ListItem>
+            <ListItem>
+              <Link
+                activeClass='active'
+                to='homepage'
+                spy={true}
+                offset={-70}
+                smooth={true}
+                duration={500}
+              >
+                Home
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link
+                activeClass='active'
+                to='about'
+                spy={true}
+                offset={-70}
+                smooth={true}
+                duration={500}
+              >
+                About
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link
+                activeClass='active'
+                to='projects'
+                spy={true}
+                offset={-70}
+                smooth={true}
+                duration={500}
+              >
+                Works
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link
+                activeClass='active'
+                to='contact'
+                spy={true}
+                offset={-70}
+                smooth={true}
+                duration={500}
+              >
+                Contact
+              </Link>
+            </ListItem>
           </List>
         </Links>
         <Icons>
-          <Icon src="../img/lens-icon.svg" />
-          <Button>Hire Now</Button>
+          <Icon src='../img/lens-icon.svg' />
+          <Button>Hire now</Button>
         </Icons>
       </Container>
     </Section>
