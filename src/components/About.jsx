@@ -142,7 +142,7 @@ export const About = () => {
             <Line src='./img/line.png' />
             <Subtitle>Who I am</Subtitle>
           </WhatWeDo>
-          <Desc>A creative individual passionate about nature, technology and writing.</Desc>
+          <Desc>A creative individual passionate about nature, technology, writing and the human race.</Desc>
           <Button>See my works</Button>
         </InfoContainer>
       </Container>
