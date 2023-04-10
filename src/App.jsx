@@ -7,12 +7,10 @@ import { ToastContainer } from 'react-toastify'
 import 'typeface-dm-sans'
 
 const Container = styled.div`
-
-  overflow: scroll;
-  scroll-snap-type: y mandatory;
-
   height: 100vh;
   color: #73683B;
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
   @font-face {
     font-family: 'Gallient';
     src: url('../fonts/Gallient.ttf') format('truetype');
@@ -24,10 +22,7 @@ const Container = styled.div`
   font-weight: 900;
   background: url('./img/bg.jpg');
   background-size: cover;
-  background-position: center;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-  &::-webkit-scrollbar{ /* WebKit based browsers */
+  ::-webkit-scrollbar {
     display: none;
   }
 `
