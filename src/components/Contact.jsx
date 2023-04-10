@@ -76,12 +76,11 @@ const Button = styled.button`
   min-height: 2.2rem;
   background-image: linear-gradient(to right, #d1c9a6 0%, #73685B  51%, #d1c9a6  100%);
   text-align: center;
-  text-transform: uppercase;
   transition: 0.5s;
   font-family: 'Gallient', sans-serif;
   font-size: calc(0.5vw + 1vh);
   background-size: 350% auto;
-  color: #583E23;            
+  color: #583E23;
   box-shadow: 0 0 0.5rem #d1c9a6;
   border-radius: 10px;
   display: block;
@@ -162,11 +161,11 @@ export const Contact = () => {
     })
   }
   return (
-    <Section>
+    <Section id="contact">
       <Container>
         <InfoContainer>
           <Form ref={ref} onSubmit={handleSubmit}>
-            <Title>Contact Me</Title>
+            <Title>Contact me</Title>
             <Input placeholder='Name' name='name' />
             <Input placeholder='Email' name='email' required minLength='4' />
             <Text placeholder='Write your message' name='message' rows={12} required />
