@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import ProductDesign from './ProductDesign'
+import WebDesign from './WebDesign'
+import Development from './Development'
 
 const listData = [
   'Development',
@@ -13,6 +16,9 @@ const Section = styled.div`
   scroll-snap-align: center;
   display: flex;
   justify-content: center;
+  ${'' /* background: url('./img/bg.jpg');
+  background-size: cover;
+  background-position: center center; */}
 `
 
 const Container = styled.div`
@@ -21,13 +27,14 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 768px) { ${'' /* needs a fix when animation is added */}
+  @media (max-width: 768px) {
     width: 100vw;
     margin: 0 -5rem 0 5rem;
   }
 `
 
 const InfoContainer = styled.div`
+  letter-spacing: 0.02em;
   flex: 1;
   display: flex;
   align-items: center;
@@ -82,17 +89,22 @@ const ImageContainer = styled.div`
 
 
 export const Projects = () => {
+  const [project, setProject] = useState('Web Design')
   return (
-    <Section>
+    <Section id="projects">
       <Container>
         <InfoContainer>
           <List>
             {listData.map(item=>(
-            <ListItem key={item} text={item}>{item}</ListItem>
+              <ListItem key={item} text={item} onClick={()=>setProject(item)}>
+                {item}
+              </ListItem>
             ))}
           </List>
         </InfoContainer>
-        <ImageContainer></ImageContainer>
+        <ImageContainer>
+          {project === 'Web Design' ? (<WebDesign/>) : project === 'Development' ? (<Development/>) : (<ProductDesign/>)}
+        </ImageContainer>
       </Container>
     </Section>
   )
