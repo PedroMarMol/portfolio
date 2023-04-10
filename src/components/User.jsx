@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Navbar from './Navbar'
 import { MeshDistortMaterial, Sphere, OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
+import AngelciaProDisplayOTF from '/fonts/Anglecia-Pro-Display.otf'
 
 const Section = styled.div`
   height: 100vh;
@@ -20,14 +21,14 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   color: #583E23;
-`;
-
+`
 const InfoContainer = styled.div`
+  letter-spacing: 0.02em;
   flex: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.2rem;
+  gap: 0.8rem;
   z-index: 1;
 `
 const Title = styled.h1`
@@ -42,12 +43,18 @@ const Line = styled.img`
   height: 0.15rem;
 `
 const Subtitle = styled.h2`
-  color: #25A372;
-  font-size: 2rem;
+  fontFamily: 'Anglecia Pro Display, sans-serif';
+  font-size: 2.2rem;
+  color: #b34043;
+  @font-face {
+    font-family: 'Anglecia Pro Display';
+    src: url(${AngelciaProDisplayOTF}) format('opentype');
+  }
 `
 const Desc = styled.p`
-  font-size: 1.8rem;
-  ${'' /* font-family: 'ComicSans'; */}
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.6rem;
 `
 const Button = styled.button`
   max-width: 8rem;
@@ -59,9 +66,10 @@ const Button = styled.button`
   text-align: center;
   transition: 0.5s;
   font-family: 'Gallient', sans-serif;
+  font-weight: 900;
   font-size: calc(0.5vw + 1vh);
   background-size: 350% auto;
-  color: #583E23;            
+  color: #583E23;
   box-shadow: 0 0 0.5rem #d1c9a6;
   border-radius: 10px;
   display: block;
@@ -151,17 +159,17 @@ export const User = () => {
   }, [handleResize])
 
   return (
-    <Section>
+    <Section id="homepage">
       <Navbar/>
       <Container>
         <InfoContainer>
-          <Title>Slogan personal</Title>
+          <Title>Pedro Martos</Title>
           <WhatWeDo>
             <Line src='./img/line.png' />
             <Subtitle>What I do</Subtitle>
           </WhatWeDo>
-          <Desc>We enjoy creating delightful, human-centered digital experiences.</Desc>
-          <Button>Learn More</Button>
+          <Desc>I enjoy creating functional apps and human-centered digital experiences.</Desc>
+          <Button>Learn more</Button>
         </InfoContainer>
         <ImageContainer>
           <AnimationContainer>
