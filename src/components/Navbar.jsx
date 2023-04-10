@@ -31,6 +31,11 @@ const List = styled.ul`
   gap: 2vw;
   list-style: none;
   margin: -20px 0;
+  & > li > a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: inherit;
+  }
 `
 const ListItem = styled.li`
   cursor: pointer;
@@ -72,6 +77,14 @@ const Button = styled.button`
 
 
 const Navbar = () => {
+  const handleClick = (event, targetElementId) => {
+    event.preventDefault()
+    const targetElement = document.getElementById(targetElementId)
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <Section>
       <Container>
@@ -79,16 +92,24 @@ const Navbar = () => {
           <Logo src='../img/logo.png' />
           <List>
             <ListItem>
+              <a href='#home' onClick={(event) => handleClick(event, 'home')}>
                 Home
+              </a>
             </ListItem>
             <ListItem>
+              <a href='#about' onClick={(event) => handleClick(event, 'about')}>
                 About
+              </a>
             </ListItem>
             <ListItem>
+              <a href='#projects' onClick={(event) => handleClick(event, 'projects')}>
                 Works
+              </a>
             </ListItem>
             <ListItem>
+              <a href='#contact' onClick={(event) => handleClick(event, 'contact')}>
                 Contact
+              </a>
             </ListItem>
           </List>
         </Links>
