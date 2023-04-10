@@ -3,18 +3,20 @@ import styled from 'styled-components'
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import Octahedron from './Octahedron'
+import AngelciaProDisplayOTF from '/fonts/Anglecia-Pro-Display.otf'
 
 const Section = styled.div`
   height: 100vh;
-  scroll-snap-align: center;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  scroll-snap-align: start;
+  ${'' /* overflow-y: scroll; */}
 `
 const Container = styled.div`
   height: 100%;
   width: 64vw;
-  scroll-snap-align: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -31,6 +33,7 @@ const InfoContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  letter-spacing: 0.02em;
   z-index: 1;
   gap: 0.5rem;
   @media (max-width: 768px) {
@@ -54,25 +57,33 @@ const Line = styled.img`
   height: 0.15rem;
 `
 const Subtitle = styled.h2`
-  color: #25A372;
-  font-size: 2rem;
+  fontFamily: 'Anglecia Pro Display, sans-serif';
+  font-size: 2.2rem;
+  color: #9190b7;
+  @font-face {
+    font-family: 'Anglecia Pro Display';
+    src: url(${AngelciaProDisplayOTF}) format('opentype');
+  }
 `
 const Desc = styled.p`
-  font-size: 1.8rem;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.6rem;
 `
 const Button = styled.button`
   max-width: 8rem;
   max-height: 2.4rem;
-  width: calc(16vw + 2vh);
-  height: calc(3.5vh + 1vw);
-  font-size: calc(0.5vw + 0.8vh);
+  width: 18vw;
+  height: 3.5vh;
   background-image: linear-gradient(to right, #d1c9a6 0%, #73685B  51%, #d1c9a6  100%);
   margin-right: 1rem;
   text-align: center;
   transition: 0.5s;
   font-family: 'Gallient', sans-serif;
+  font-weight: 900;
+  font-size: calc(0.5vw + 1vh);
   background-size: 350% auto;
-  color: #583E23;            
+  color: #583E23;
   box-shadow: 0 0 0.5rem #d1c9a6;
   border-radius: 10px;
   display: block;
@@ -113,7 +124,7 @@ const AnimationContainer = styled.div`
 
 export const About = () => {
   return (
-    <Section>
+    <Section id="about">
       <Container>
         <AnimationContainer>
           <Canvas camera={{ position: [5, 5, 5], fov: 35 }}>
@@ -126,13 +137,13 @@ export const About = () => {
           </Canvas>
         </AnimationContainer>
         <InfoContainer>
-          <Title>Think outside the square space.</Title>
+          <Title>Think outside the of the octahedron</Title>
           <WhatWeDo>
             <Line src='./img/line.png' />
             <Subtitle>Who I am</Subtitle>
           </WhatWeDo>
-          <Desc>A creative individual with a lot of interests.</Desc>
-          <Button>See my works.</Button>
+          <Desc>A creative individual passionate about nature, technology and writing.</Desc>
+          <Button>See my works</Button>
         </InfoContainer>
       </Container>
     </Section>
