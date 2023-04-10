@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link, animateScroll as scroll} from 'react-scroll'
 
 const Section = styled.div`
   display: flex;
@@ -80,52 +79,16 @@ const Navbar = () => {
           <Logo src='../img/logo.png' />
           <List>
             <ListItem>
-              <Link
-                activeClass='active'
-                to='homepage'
-                spy={true}
-                offset={-70}
-                smooth={true}
-                duration={500}
-              >
                 Home
-              </Link>
             </ListItem>
             <ListItem>
-              <Link
-                activeClass='active'
-                to='about'
-                spy={true}
-                offset={-70}
-                smooth={true}
-                duration={500}
-              >
                 About
-              </Link>
             </ListItem>
             <ListItem>
-              <Link
-                activeClass='active'
-                to='projects'
-                spy={true}
-                offset={-70}
-                smooth={true}
-                duration={500}
-              >
                 Works
-              </Link>
             </ListItem>
             <ListItem>
-              <Link
-                activeClass='active'
-                to='contact'
-                spy={true}
-                offset={-70}
-                smooth={true}
-                duration={500}
-              >
                 Contact
-              </Link>
             </ListItem>
           </List>
         </Links>
