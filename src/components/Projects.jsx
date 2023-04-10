@@ -16,9 +16,6 @@ const Section = styled.div`
   scroll-snap-align: center;
   display: flex;
   justify-content: center;
-  ${'' /* background: url('./img/bg.jpg');
-  background-size: cover;
-  background-position: center center; */}
 `
 
 const Container = styled.div`
