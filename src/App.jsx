@@ -1,16 +1,17 @@
-import { Contact } from './components/Contact'
+import { User } from './components/User'
 import { About } from './components/About'
 import { Projects } from './components/Projects'
-import { User } from './components/User'
+import { Contact } from './components/Contact'
 import styled from 'styled-components'
 import { ToastContainer } from 'react-toastify'
+import 'typeface-dm-sans'
 
 const Container = styled.div`
-  height: 100vh;
+
+  overflow: scroll;
   scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  overflow-y: auto;
-  scrollbar-width: none;
+
+  height: 100vh;
   color: #73683B;
   @font-face {
     font-family: 'Gallient';
@@ -24,8 +25,9 @@ const Container = styled.div`
   background: url('./img/bg.jpg');
   background-size: cover;
   background-position: center;
-  height: 100vh;
-  &::-webkit-scrollbar{
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar{ /* WebKit based browsers */
     display: none;
   }
 `
