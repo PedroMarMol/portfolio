@@ -126,6 +126,10 @@ const AnimationContainer = styled.div`
 `
 
 export const About = () => {
+  const handleClick = () => {
+    const aboutSection = document.getElementById('projects')
+    aboutSection.scrollIntoView({ behavior: 'smooth' })
+  }
   return (
     <Section id="about">
       <Container>
@@ -146,7 +150,7 @@ export const About = () => {
             <Subtitle>Who I am</Subtitle>
           </WhatWeDo>
           <Desc>A creative individual passionate about nature, technology, writing and the human race.</Desc>
-          <Button>See my works</Button>
+          <Button onClick={handleClick}>See my works</Button>
         </InfoContainer>
       </Container>
     </Section>
