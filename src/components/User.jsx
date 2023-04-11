@@ -110,7 +110,7 @@ const AnimationContainer = styled.div`
     position: absolute;
     width: 100vw;
     top: 27vh;
-    left: -49vw;
+    left: -39vw;
   }
 `
 
@@ -131,7 +131,7 @@ const Img = styled.img`
     position: absolute;
     width: 45vw;
     top: 50vh;
-    left: -20vw;
+    left: -10vw;
   }
 
   @keyframes eva01 {
