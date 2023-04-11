@@ -4,6 +4,8 @@ import DejaVu from './projects/DejaVu'
 import PhotoAlbum from './projects/PhotoAlbum'
 import CarTracker from './projects/CarTracker'
 import TenziesGame from './projects/TenziesGame'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 
 const listData = [
   'Deja Vu',
@@ -87,9 +89,32 @@ const ImageContainer = styled.div`
   flex: 1;
 `
 
+const ArrowUp = styled.div`
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #e5e2e2;
+  border-radius: 100%;
+  padding: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+
+  @media (max-width: 768px){
+    bottom: -15rem;
+  }
+  
+  :hover {
+    background-color: #f2f2f2;
+  }
+`
 
 export const Projects = () => {
   const [project, setProject] = useState('Deja Vu')
+  const scrollToTop = () => {
+    const aboutSection = document.getElementById('homepage')
+    aboutSection.scrollIntoView({ behavior: 'smooth' })
+  }
   return (
     <Section id="projects">
       <Container>
@@ -101,6 +126,9 @@ export const Projects = () => {
               </ListItem>
             ))}
           </List>
+          <ArrowUp onClick={scrollToTop}>
+            <FontAwesomeIcon icon={faArrowUp} />
+          </ArrowUp>
         </InfoContainer>
         <ImageContainer>
         {project === 'Deja Vu' ? <DejaVu /> : project === 'Photo Album' ? <PhotoAlbum /> : project === 'Car Tracker' ? <CarTracker /> : <TenziesGame />}

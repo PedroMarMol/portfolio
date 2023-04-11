@@ -6,6 +6,8 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import AngelciaProDisplayOTF from '/fonts/Anglecia-Pro-Display.otf'
 import SocialMediaButtons from './SocialMediaButtons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 
 const Section = styled.div`
   height: 100vh;
@@ -118,6 +120,26 @@ const ImageContainer = styled.div`
   }
 `
 
+const ArrowUp = styled.div`
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #e5e2e2;
+  border-radius: 100%;
+  padding: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+
+  @media (max-width: 768px){
+    bottom: -15rem;
+  }
+  
+  :hover {
+    background-color: #f2f2f2;
+  }
+`
+
 
 export const Contact = () => {
   const ref = useRef()
@@ -125,7 +147,6 @@ export const Contact = () => {
   
   const handleSubmit = (event) => {
     event.preventDefault()
-  
     emailjs
     .sendForm(
       'service_v661osb',
@@ -167,6 +188,12 @@ export const Contact = () => {
         setError(true)
     })
   }
+
+  const scrollToTop = () => {
+    const aboutSection = document.getElementById('homepage')
+    aboutSection.scrollIntoView({ behavior: 'smooth' })
+  }
+  
   return (
     <Section id="contact">
       <Container>
@@ -180,6 +207,9 @@ export const Contact = () => {
           </Form>
           <SocialMediaButtons />
           <p style={{ fontFamily: 'DM Sans', color: 'black' }}>martosmoleropedro@gmail.com</p>
+          <ArrowUp onClick={scrollToTop}>
+            <FontAwesomeIcon icon={faArrowUp} />
+          </ArrowUp>
         </InfoContainer>
         <ImageContainer>
           <MapChart />
