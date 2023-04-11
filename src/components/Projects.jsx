@@ -31,12 +31,13 @@ const Container = styled.div`
 
   @media (max-width: 768px) {
     width: 100vw;
-    margin: 0 -5rem 0 5rem;
+    ${'' /* margin: 0 -5rem 0 5rem; */}
+    flex-direction: column;
   }
 `
 
 const InfoContainer = styled.div`
-  letter-spacing: 0.02em;
+  letter-spacing: 0.1rem;
   flex: 1;
   display: flex;
   align-items: center;
@@ -47,6 +48,11 @@ const List = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+
+  @media (max-width: 768px) {
+    margin: 4rem;
+    gap: 0rem;
+  }
 `
 
 const ListItem = styled.li`
@@ -59,7 +65,7 @@ const ListItem = styled.li`
   position: relative;
 
   @media (max-width: 768px) {
-   font-size: 3.7vh;  ${'' /* needs a fix when animation is added */}
+    font-size: 4vh;
   }
 
   ::after {
@@ -131,7 +137,14 @@ export const Projects = () => {
           </ArrowUp>
         </InfoContainer>
         <ImageContainer>
-        {project === 'Deja Vu' ? <DejaVu /> : project === 'Photo Album' ? <PhotoAlbum /> : project === 'Car Tracker' ? <CarTracker /> : <TenziesGame />}
+          {project === 'Deja Vu' ?
+            <DejaVu />
+          : project === 'Photo Album' ?
+            <PhotoAlbum /> 
+          : project === 'Car Tracker' ?
+            <CarTracker /> 
+          : <TenziesGame />
+          }
         </ImageContainer>
       </Container>
     </Section>
