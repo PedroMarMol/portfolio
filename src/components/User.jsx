@@ -34,7 +34,7 @@ const InfoContainer = styled.div`
 const Title = styled.h1`
   font-size: 4.6rem;
 `
-const WhatWeDo = styled.div`
+const WhatIDo = styled.div`
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -43,7 +43,7 @@ const Line = styled.img`
   height: 0.15rem;
 `
 const Subtitle = styled.h2`
-  fontFamily: 'Anglecia Pro Display, sans-serif';
+  fontFamily: 'Anglecia Pro Display', sans-serif;
   font-size: 2.2rem;
   color: #b34043;
   @font-face {
@@ -65,14 +65,23 @@ const Button = styled.button`
   margin-right: 1rem;
   text-align: center;
   transition: 0.5s;
-  font-family: 'Gallient', sans-serif;
-  font-weight: 900;
-  font-size: calc(0.5vw + 1vh);
+  font-family: 'Anglecia Pro Display', sans-serif;
+  @font-face {
+    font-family: 'Anglecia Pro Display';
+    src: url(${AngelciaProDisplayOTF}) format('opentype');
+  }
+  font-size: calc(0.5vw + 0.8vh);
   background-size: 350% auto;
   color: #583E23;
   box-shadow: 0 0 0.5rem #d1c9a6;
   border-radius: 10px;
   display: block;
+
+  @media (max-width: 768px) {
+    width: calc(35vw + 2vh);
+    height: calc(6vh + 1vw);
+    font-size: calc(0.5vw + 2vh);
+  }
 
   &:hover {
     background-position: right center;
@@ -164,10 +173,10 @@ export const User = () => {
       <Container>
         <InfoContainer>
           <Title>Pedro Martos</Title>
-          <WhatWeDo>
+          <WhatIDo>
             <Line src='./img/line.png' />
             <Subtitle>What I do</Subtitle>
-          </WhatWeDo>
+          </WhatIDo>
           <Desc>I enjoy creating functional apps and human-centered digital experiences.</Desc>
           <Button>Learn more</Button>
         </InfoContainer>

@@ -57,7 +57,7 @@ const Line = styled.img`
   height: 0.15rem;
 `
 const Subtitle = styled.h2`
-  fontFamily: 'Anglecia Pro Display, sans-serif';
+  fontFamily: 'Anglecia Pro Display', sans-serif;
   font-size: 2.2rem;
   color: #9190b7;
   @font-face {
@@ -79,9 +79,12 @@ const Button = styled.button`
   margin-right: 1rem;
   text-align: center;
   transition: 0.5s;
-  font-family: 'Gallient', sans-serif;
-  font-weight: 900;
-  font-size: calc(0.5vw + 1vh);
+  font-family: 'Anglecia Pro Display', sans-serif;
+  @font-face {
+    font-family: 'Anglecia Pro Display';
+    src: url(${AngelciaProDisplayOTF}) format('opentype');
+  }
+  font-size: calc(0.5vw + 0.8vh);
   background-size: 350% auto;
   color: #583E23;
   box-shadow: 0 0 0.5rem #d1c9a6;

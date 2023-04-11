@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import MapChart from './MapChart'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import AngelciaProDisplayOTF from '/fonts/Anglecia-Pro-Display.otf'
 
 const Section = styled.div`
   height: 100vh;
@@ -77,8 +78,12 @@ const Button = styled.button`
   background-image: linear-gradient(to right, #d1c9a6 0%, #73685B  51%, #d1c9a6  100%);
   text-align: center;
   transition: 0.5s;
-  font-family: 'Gallient', sans-serif;
-  font-size: calc(0.5vw + 1vh);
+  font-family: 'Anglecia Pro Display', sans-serif;
+  @font-face {
+    font-family: 'Anglecia Pro Display';
+    src: url(${AngelciaProDisplayOTF}) format('opentype');
+  }
+  font-size: calc(0.5vw + 0.8vh);
   background-size: 350% auto;
   color: #583E23;
   box-shadow: 0 0 0.5rem #d1c9a6;

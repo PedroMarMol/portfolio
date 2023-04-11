@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import AngelciaProDisplayOTF from '/fonts/Anglecia-Pro-Display.otf'
 
 const Section = styled.div`
   display: flex;
@@ -59,8 +60,11 @@ const Button = styled.button`
   margin-right: 1rem;
   text-align: center;
   transition: 0.5s;
-  font-weight: 900;
-  font-family: 'Gallient', sans-serif;
+  font-family: 'Anglecia Pro Display', sans-serif;
+  @font-face {
+    font-family: 'Anglecia Pro Display';
+    src: url(${AngelciaProDisplayOTF}) format('opentype');
+  }
   font-size: calc(0.5vw + 1vh);
   background-size: 350% auto;
   color: #583E23;            
@@ -74,6 +78,7 @@ const Button = styled.button`
     text-decoration: none;
   }
 `
+
 
 
 const Navbar = () => {
