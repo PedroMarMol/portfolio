@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import ProductDesign from './ProductDesign'
-import WebDesign from './WebDesign'
-import Development from './Development'
+import DejaVu from './projects/DejaVu'
+import PhotoAlbum from './projects/PhotoAlbum'
+import CarTracker from './projects/CarTracker'
+import TenziesGame from './projects/TenziesGame'
 
 const listData = [
-  'Development',
-  'Product Design',
-  'Web Design',
-  'Software Dev',
+  'Deja Vu',
+  'Photo Album',
+  'Car Tracker',
+  'Tenzies Game',
 ]
 
 const Section = styled.div`
@@ -16,6 +17,8 @@ const Section = styled.div`
   scroll-snap-align: center;
   display: flex;
   justify-content: center;
+  position: relative;
+  font-weight: 300;
 `
 
 const Container = styled.div`
@@ -86,7 +89,7 @@ const ImageContainer = styled.div`
 
 
 export const Projects = () => {
-  const [project, setProject] = useState('Web Design')
+  const [project, setProject] = useState('Deja Vu')
   return (
     <Section id="projects">
       <Container>
@@ -100,7 +103,7 @@ export const Projects = () => {
           </List>
         </InfoContainer>
         <ImageContainer>
-          {project === 'Web Design' ? (<WebDesign/>) : project === 'Development' ? (<Development/>) : (<ProductDesign/>)}
+        {project === 'Deja Vu' ? <DejaVu /> : project === 'Photo Album' ? <PhotoAlbum /> : project === 'Car Tracker' ? <CarTracker /> : <TenziesGame />}
         </ImageContainer>
       </Container>
     </Section>
