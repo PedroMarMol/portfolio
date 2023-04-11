@@ -26,6 +26,11 @@ const Logo = styled.img`
   height: 25%;
   width: 25%;
   margin: -2vh -7vw -4vh -2vw;
+  @media (max-width: 768px) {
+    height: 35%;
+    width: 35%;
+    margin: -2vh -10vw -4vh -4vw;
+  }
 ` 
 const List = styled.ul`
   display: flex;
@@ -37,6 +42,9 @@ const List = styled.ul`
     color: inherit;
     font-weight: inherit;
   }
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `
 const ListItem = styled.li`
   cursor: pointer;
@@ -44,12 +52,18 @@ const ListItem = styled.li`
 const Icons = styled.div`
   display: flex;
   justify-content: end;
-  gap: 2vw;
+  gap: 1vw;
   margin: 1vw 0;
+  @media (max-width: 768px) {
+    gap: 2vw;
+  }
 `
 const Icon = styled.img`
-  width: 1.3em;
+  width: 1.2em;
   cursor: pointer;
+  @media (max-width: 768px) {
+    width: 1rem;
+  }
 `
 const Button = styled.button`
   max-width: 8rem;
@@ -124,7 +138,7 @@ const Navbar = () => {
         </Links>
         <Icons>
           <Icon src='../img/lens-icon.svg' />
-          <Button>Hire now</Button>
+          <Button onClick={(event) => handleClick(event, 'contact')}>Hire now</Button>
         </Icons>
       </Container>
     </Section>
