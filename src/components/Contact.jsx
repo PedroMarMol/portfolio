@@ -5,6 +5,7 @@ import MapChart from './MapChart'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import AngelciaProDisplayOTF from '/fonts/Anglecia-Pro-Display.otf'
+import SocialMediaButtons from './SocialMediaButtons'
 
 const Section = styled.div`
   height: 100vh;
@@ -31,8 +32,9 @@ const Container = styled.div`
 
 const InfoContainer = styled.div`
   display: flex;
+  justify-content: center; // horizontally center child elements
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
   z-index: 1;
   position: relative;
 
@@ -176,6 +178,8 @@ export const Contact = () => {
             <Text placeholder='Write your message' name='message' rows={12} required />
             <Button type='submit'>Send</Button>
           </Form>
+          <SocialMediaButtons />
+          <p style={{ fontFamily: 'DM Sans', color: 'black' }}>martosmoleropedro@gmail.com</p>
         </InfoContainer>
         <ImageContainer>
           <MapChart />
