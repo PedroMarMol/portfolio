@@ -34,18 +34,17 @@ const Container = styled.div`
 
 const InfoContainer = styled.div`
   display: flex;
-  justify-content: center; // horizontally center child elements
-  flex-direction: column;
   align-items: center;
+  justify-content: center; // horizontally center child elements
   z-index: 1;
+  flex-direction: column;
   position: relative;
 
   @media (max-width: 768px) {
-    top: -30%;
+    top: -4rem;
     max-width: 80vw;
     margin: 2.5rem auto;
     padding: 1rem;
-    background-color: #ffffff;
     border-radius: 1rem;
     box-shadow: 0 0 1rem rgba(0,0,0,0.1);
   }
@@ -57,6 +56,7 @@ const Title = styled.h1`
 
 const Form = styled.form`
   width: 32rem;
+  max-width: 80vw;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
