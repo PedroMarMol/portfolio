@@ -167,6 +167,11 @@ export const User = () => {
     return () => window.removeEventListener("resize", handleResize)
   }, [handleResize])
 
+  const handleClick = () => {
+    const aboutSection = document.getElementById('about')
+    aboutSection.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <Section id="homepage">
       <Navbar/>
@@ -178,7 +183,7 @@ export const User = () => {
             <Subtitle>What I do</Subtitle>
           </WhatIDo>
           <Desc>I enjoy creating functional apps and human-centered digital experiences.</Desc>
-          <Button>Learn more</Button>
+          <Button onClick={handleClick}>Learn more</Button>
         </InfoContainer>
         <ImageContainer>
           <AnimationContainer>
