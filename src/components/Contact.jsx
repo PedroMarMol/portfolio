@@ -6,13 +6,14 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import AngelciaProDisplayOTF from '/fonts/Anglecia-Pro-Display.otf'
 import SocialMediaButtons from './SocialMediaButtons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 
 const Section = styled.div`
   height: 100vh;
   scroll-snap-align: center;
   padding-left: 20rem;
   position: relative;
-
   @media (max-width: 768px) {
     padding: 0;
   }
@@ -24,26 +25,22 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 3rem;
-
   @media (max-width: 768px) {
-    flex-direction: column-reverse;
+    align-items: start;
   }
 `
 
 const InfoContainer = styled.div`
   display: flex;
-  justify-content: center; // horizontally center child elements
-  flex-direction: column;
   align-items: center;
+  justify-content: center; // horizontally center child elements
   z-index: 1;
+  flex-direction: column;
   position: relative;
-
   @media (max-width: 768px) {
-    top: -30%;
     max-width: 80vw;
     margin: 2.5rem auto;
     padding: 1rem;
-    background-color: #ffffff;
     border-radius: 1rem;
     box-shadow: 0 0 1rem rgba(0,0,0,0.1);
   }
@@ -55,6 +52,7 @@ const Title = styled.h1`
 
 const Form = styled.form`
   width: 32rem;
+  max-width: 80vw;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -91,11 +89,9 @@ const Button = styled.button`
   box-shadow: 0 0 0.5rem #d1c9a6;
   border-radius: 10px;
   display: block;
-
   @media (max-width: 768px) {
     font-size: 1rem;
   }
-
   &:hover {
     background-position: right center;
     color: #583E23;
@@ -110,11 +106,31 @@ const ImageContainer = styled.div`
   width: 100%;
   height: 100%;
   margin-top: 0;
-
   @media (max-width: 768px) {
     & > div {
       height: 50%;
     }
+  }
+`
+
+const ArrowUp = styled.div`
+  position: absolute;
+  top: 1rem;
+  left: 100%;
+  transform: translateX(-50%);
+  background-color: #e5e2e2;
+  border-radius: 100%;
+  padding: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  @media (max-width: 768px){
+    top: 1rem;
+    left: 90%;
+    z-index: 2;
+  }
+  
+  :hover {
+    background-color: #f2f2f2;
   }
 `
 
@@ -125,7 +141,6 @@ export const Contact = () => {
   
   const handleSubmit = (event) => {
     event.preventDefault()
-  
     emailjs
     .sendForm(
       'service_v661osb',
@@ -167,6 +182,12 @@ export const Contact = () => {
         setError(true)
     })
   }
+
+  const scrollToTop = () => {
+    const aboutSection = document.getElementById('homepage')
+    aboutSection.scrollIntoView({ behavior: 'smooth' })
+  }
+  
   return (
     <Section id="contact">
       <Container>
@@ -180,6 +201,9 @@ export const Contact = () => {
           </Form>
           <SocialMediaButtons />
           <p style={{ fontFamily: 'DM Sans', color: 'black' }}>martosmoleropedro@gmail.com</p>
+          <ArrowUp onClick={scrollToTop}>
+            <FontAwesomeIcon icon={faArrowUp} />
+          </ArrowUp>
         </InfoContainer>
         <ImageContainer>
           <MapChart />
