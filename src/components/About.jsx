@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import styled from 'styled-components'
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import Octahedron from './Octahedron'
+import Octahedron from './3Dmodels/Octahedron'
 import AngelciaProDisplayOTF from '/fonts/Anglecia-Pro-Display.otf'
 
 const Section = styled.div`
