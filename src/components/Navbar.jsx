@@ -31,7 +31,7 @@ const List = styled.ul`
   gap: 2vw;
   list-style: none;
   margin: -20px 0;
-  & > li > a {
+   & > li > a {
     text-decoration: none;
     color: inherit;
     font-weight: inherit;
@@ -80,9 +80,13 @@ const Navbar = () => {
   const handleClick = (event, targetElementId) => {
     event.preventDefault()
     const targetElement = document.getElementById(targetElementId)
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth" })
+  if (targetElement) {
+    const rect = targetElement.getBoundingClientRect()
+    if (rect.top === 0) {
+      window.scrollBy(0, rect.height)
     }
+    targetElement.scrollIntoView({ behavior: "smooth" })
+  }
   }
 
   return (
