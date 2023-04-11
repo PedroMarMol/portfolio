@@ -132,7 +132,8 @@ const ArrowUp = styled.div`
   cursor: pointer;
 
   @media (max-width: 768px){
-    bottom: -15rem;
+    bottom: -5rem;
+    left: 2rem;
   }
   
   :hover {
