@@ -84,7 +84,7 @@ const Button = styled.button`
     font-family: 'Anglecia Pro Display';
     src: url(${AngelciaProDisplayOTF}) format('opentype');
   }
-  font-size: calc(0.5vw + 0.8vh);
+  font-size: calc(0.5vw + 0.7vh);
   background-size: 350% auto;
   color: #583E23;
   box-shadow: 0 0 0.5rem #d1c9a6;
