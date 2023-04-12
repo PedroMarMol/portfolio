@@ -9,7 +9,7 @@ const Container = styled.div`
   width: 100vw;
   position: relative;
   top: -1rem;
-  left: -20rem;
+  left: -18%;
   display: flex;
   justify-content: space-between;
   align-items: center;
