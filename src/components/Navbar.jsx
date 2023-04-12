@@ -3,17 +3,22 @@ import styled from 'styled-components'
 import AngelciaProDisplayOTF from '/fonts/Anglecia-Pro-Display.otf'
 
 const Section = styled.div`
-  display: flex;
-  justify-content: center;
-  max-height: 6rem;
 `
+
 const Container = styled.div`
   width: 100vw;
+  position: relative;
+  top: -1rem;
+  left: -20rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1vh 1vw;
   font-size: 1.4rem;
+  z-index: 2;
+  @media (max-width: 768px) {
+    top: 0rem;
+    left: -4.5rem;
+  }
 `
 
 const Links = styled.div`
@@ -95,7 +100,7 @@ const Button = styled.button`
 
 
 
-const Navbar = () => {
+const Navbar = ({ show }) => {
   const handleClick = (event, targetElementId) => {
     event.preventDefault()
     const targetElement = document.getElementById(targetElementId)
@@ -109,39 +114,39 @@ const Navbar = () => {
   }
 
   return (
-    <Section>
-      <Container>
-        <Links>
-          <Logo src='../img/logo.png' />
-          <List>
-            <ListItem>
-              <a href='#home' onClick={(event) => handleClick(event, 'home')}>
-                Home
-              </a>
-            </ListItem>
-            <ListItem>
-              <a href='#about' onClick={(event) => handleClick(event, 'about')}>
-                About
-              </a>
-            </ListItem>
-            <ListItem>
-              <a href='#projects' onClick={(event) => handleClick(event, 'projects')}>
-                Works
-              </a>
-            </ListItem>
-            <ListItem>
-              <a href='#contact' onClick={(event) => handleClick(event, 'contact')}>
-                Contact
-              </a>
-            </ListItem>
-          </List>
-        </Links>
-        <Icons>
-          <Icon src='../img/lens-icon.svg' />
-          <Button onClick={(event) => handleClick(event, 'contact')}>Hire now</Button>
-        </Icons>
-      </Container>
-    </Section>
+        <Section>
+          <Container>
+            <Links>
+              <Logo src='../img/logo.png' />
+              <List>
+                <ListItem>
+                  <a href='#home' onClick={(event) => handleClick(event, 'home')}>
+                    Home
+                  </a>
+                </ListItem>
+                <ListItem>
+                  <a href='#about' onClick={(event) => handleClick(event, 'about')}>
+                    About
+                  </a>
+                </ListItem>
+                <ListItem>
+                  <a href='#projects' onClick={(event) => handleClick(event, 'projects')}>
+                    Works
+                  </a>
+                </ListItem>
+                <ListItem>
+                  <a href='#contact' onClick={(event) => handleClick(event, 'contact')}>
+                    Contact
+                  </a>
+                </ListItem>
+              </List>
+            </Links>
+            <Icons>
+              <Icon src='../img/lens-icon.svg' onClick={(event) => handleClick(event, 'contact')} />
+              <Button onClick={(event) => handleClick(event, 'contact')}>Hire now</Button>
+            </Icons>
+          </Container>
+        </Section>
   )
 }
 
