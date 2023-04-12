@@ -24,6 +24,7 @@ const Container = styled.div`
 `
 const InfoContainer = styled.div`
   letter-spacing: 0.02em;
+  margin-top: -30rem;
   flex: 2;
   display: flex;
   flex-direction: column;
@@ -76,13 +77,11 @@ const Button = styled.button`
   box-shadow: 0 0 0.5rem #d1c9a6;
   border-radius: 10px;
   display: block;
-
   @media (max-width: 768px) {
     width: calc(35vw + 2vh);
     height: calc(6vh + 1vw);
     font-size: calc(0.5vw + 2vh);
   }
-
   &:hover {
     background-position: right center;
     color: #583E23;
@@ -91,6 +90,7 @@ const Button = styled.button`
 `
 
 const ImageContainer = styled.div`
+  margin-top: -30rem;
   flex: 3;
   position: relative;
   display: flex;
@@ -110,7 +110,7 @@ const AnimationContainer = styled.div`
     position: absolute;
     width: 100vw;
     top: 27vh;
-    left: -49vw;
+    left: -39vw;
   }
 `
 
@@ -126,14 +126,12 @@ const Img = styled.img`
   right: 0;
   margin: auto;
   animation: eva01 2s infinite ease alternate;
-
   @media (max-width: 768px) {
     position: absolute;
     width: 45vw;
     top: 50vh;
-    left: -20vw;
+    left: -10vw;
   }
-
   @keyframes eva01 {
     to {
       transform: translateY(20px);
@@ -167,10 +165,15 @@ export const User = () => {
     return () => window.removeEventListener("resize", handleResize)
   }, [handleResize])
 
+  const handleClick = () => {
+    const aboutSection = document.getElementById('about')
+    aboutSection.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <Section id="homepage">
-      <Navbar/>
       <Container>
+        <Navbar />
         <InfoContainer>
           <Title>Pedro Martos</Title>
           <WhatIDo>
@@ -178,7 +181,7 @@ export const User = () => {
             <Subtitle>What I do</Subtitle>
           </WhatIDo>
           <Desc>I enjoy creating functional apps and human-centered digital experiences.</Desc>
-          <Button>Learn more</Button>
+          <Button onClick={handleClick}>Learn more</Button>
         </InfoContainer>
         <ImageContainer>
           <AnimationContainer>

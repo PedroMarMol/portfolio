@@ -22,7 +22,6 @@ const Container = styled.div`
   justify-content: space-between;
   color: #583E23;
   position: relative;
-
   @media (max-width: 768px) {
     width: 100vw;
   }
@@ -84,19 +83,17 @@ const Button = styled.button`
     font-family: 'Anglecia Pro Display';
     src: url(${AngelciaProDisplayOTF}) format('opentype');
   }
-  font-size: calc(0.5vw + 0.8vh);
+  font-size: calc(0.5vw + 0.7vh);
   background-size: 350% auto;
   color: #583E23;
   box-shadow: 0 0 0.5rem #d1c9a6;
   border-radius: 10px;
   display: block;
-
   @media (max-width: 768px) {
     width: calc(35vw + 2vh);
     height: calc(6vh + 1vw);
-    font-size: calc(0.5vw + 2vh);
+    font-size: calc(0.5vw + 1.8vh);
   }
-
   &:hover {
     background-position: right center;
     color: #583E23;
@@ -111,13 +108,11 @@ const AnimationContainer = styled.div`
   justify-content: center;
   gap: 1.2rem;
   z-index: 0;
-
   @media (max-width: 768px) {
     position: absolute;
     width: 100vw;
     top: 40vh;
     left: 20vw;
-
     canvas {
       width: 100% !important;
       height: 80vh !important;
@@ -126,6 +121,10 @@ const AnimationContainer = styled.div`
 `
 
 export const About = () => {
+  const handleClick = () => {
+    const aboutSection = document.getElementById('projects')
+    aboutSection.scrollIntoView({ behavior: 'smooth' })
+  }
   return (
     <Section id="about">
       <Container>
@@ -146,7 +145,7 @@ export const About = () => {
             <Subtitle>Who I am</Subtitle>
           </WhatWeDo>
           <Desc>A creative individual passionate about nature, technology, writing and the human race.</Desc>
-          <Button>See my works</Button>
+          <Button onClick={handleClick}>See my works</Button>
         </InfoContainer>
       </Container>
     </Section>

@@ -3,17 +3,22 @@ import styled from 'styled-components'
 import AngelciaProDisplayOTF from '/fonts/Anglecia-Pro-Display.otf'
 
 const Section = styled.div`
-  display: flex;
-  justify-content: center;
-  max-height: 6rem;
 `
+
 const Container = styled.div`
   width: 100vw;
+  position: relative;
+  top: -1rem;
+  left: -18%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1vh 1vw;
   font-size: 1.4rem;
+  z-index: 2;
+  @media (max-width: 768px) {
+    top: 0rem;
+    left: -4.5rem;
+  }
 `
 
 const Links = styled.div`
@@ -26,6 +31,11 @@ const Logo = styled.img`
   height: 25%;
   width: 25%;
   margin: -2vh -7vw -4vh -2vw;
+  @media (max-width: 768px) {
+    height: 35%;
+    width: 35%;
+    margin: -2vh -10vw -4vh -4vw;
+  }
 ` 
 const List = styled.ul`
   display: flex;
@@ -37,6 +47,9 @@ const List = styled.ul`
     color: inherit;
     font-weight: inherit;
   }
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `
 const ListItem = styled.li`
   cursor: pointer;
@@ -44,12 +57,18 @@ const ListItem = styled.li`
 const Icons = styled.div`
   display: flex;
   justify-content: end;
-  gap: 2vw;
+  gap: 1vw;
   margin: 1vw 0;
+  @media (max-width: 768px) {
+    gap: 2vw;
+  }
 `
 const Icon = styled.img`
-  width: 1.3em;
+  width: 1.2em;
   cursor: pointer;
+  @media (max-width: 768px) {
+    width: 1rem;
+  }
 `
 const Button = styled.button`
   max-width: 8rem;
@@ -71,7 +90,6 @@ const Button = styled.button`
   box-shadow: 0 0 0.5rem #d1c9a6;
   border-radius: 10px;
   display: block;
-
   &:hover {
     background-position: right center;
     color: #583E23;
@@ -81,7 +99,7 @@ const Button = styled.button`
 
 
 
-const Navbar = () => {
+const Navbar = ({ show }) => {
   const handleClick = (event, targetElementId) => {
     event.preventDefault()
     const targetElement = document.getElementById(targetElementId)
@@ -95,39 +113,39 @@ const Navbar = () => {
   }
 
   return (
-    <Section>
-      <Container>
-        <Links>
-          <Logo src='../img/logo.png' />
-          <List>
-            <ListItem>
-              <a href='#home' onClick={(event) => handleClick(event, 'home')}>
-                Home
-              </a>
-            </ListItem>
-            <ListItem>
-              <a href='#about' onClick={(event) => handleClick(event, 'about')}>
-                About
-              </a>
-            </ListItem>
-            <ListItem>
-              <a href='#projects' onClick={(event) => handleClick(event, 'projects')}>
-                Works
-              </a>
-            </ListItem>
-            <ListItem>
-              <a href='#contact' onClick={(event) => handleClick(event, 'contact')}>
-                Contact
-              </a>
-            </ListItem>
-          </List>
-        </Links>
-        <Icons>
-          <Icon src='../img/lens-icon.svg' />
-          <Button>Hire now</Button>
-        </Icons>
-      </Container>
-    </Section>
+        <Section>
+          <Container>
+            <Links>
+              <Logo src='../img/logo.png' />
+              <List>
+                <ListItem>
+                  <a href='#home' onClick={(event) => handleClick(event, 'home')}>
+                    Home
+                  </a>
+                </ListItem>
+                <ListItem>
+                  <a href='#about' onClick={(event) => handleClick(event, 'about')}>
+                    About
+                  </a>
+                </ListItem>
+                <ListItem>
+                  <a href='#projects' onClick={(event) => handleClick(event, 'projects')}>
+                    Works
+                  </a>
+                </ListItem>
+                <ListItem>
+                  <a href='#contact' onClick={(event) => handleClick(event, 'contact')}>
+                    Contact
+                  </a>
+                </ListItem>
+              </List>
+            </Links>
+            <Icons>
+              <Icon src='../img/lens-icon.svg' onClick={(event) => handleClick(event, 'contact')} />
+              <Button onClick={(event) => handleClick(event, 'contact')}>Hire now</Button>
+            </Icons>
+          </Container>
+        </Section>
   )
 }
 
