@@ -1,8 +1,8 @@
 import React from 'react'
-import IconButton from '@material-ui/core/IconButton'
-import TwitterIcon from '@mui/icons-material/Twitter'
-import GitHubIcon from '@mui/icons-material/GitHub'
-import LinkedInIcon from '@mui/icons-material/LinkedIn'
+// import IconButton from '@material-ui/core/IconButton'
+// import TwitterIcon from '@mui/icons-material/Twitter'
+// import GitHubIcon from '@mui/icons-material/GitHub'
+// import LinkedInIcon from '@mui/icons-material/LinkedIn'
 
 export default function SocialMediaButtons() {
   const githubUrl = "https://github.com/pedromarmol"
@@ -12,19 +12,22 @@ export default function SocialMediaButtons() {
   return (
    <div>
       <a href={twitterUrl}>
-        <IconButton>
+        Twitter
+        {/* <IconButton>
           <TwitterIcon />
-        </IconButton>
+        </IconButton> */}
       </a>
       <a href={githubUrl}>
-        <IconButton>
+        GitHub
+        {/* <IconButton>
           <GitHubIcon />
-        </IconButton>
+        </IconButton> */}
       </a>
       <a href={linkedinUrl}>
-        <IconButton>
+        LinkedIn
+        {/* <IconButton>
           <LinkedInIcon />
-        </IconButton>
+        </IconButton> */}
       </a>
     </div>
   )
