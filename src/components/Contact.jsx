@@ -28,7 +28,7 @@ const Container = styled.div`
   gap: 3rem;
 
   @media (max-width: 768px) {
-    flex-direction: column-reverse;
+    align-items: start;
   }
 `
 
@@ -41,7 +41,6 @@ const InfoContainer = styled.div`
   position: relative;
 
   @media (max-width: 768px) {
-    top: -4rem;
     max-width: 80vw;
     margin: 2.5rem auto;
     padding: 1rem;
@@ -122,8 +121,8 @@ const ImageContainer = styled.div`
 
 const ArrowUp = styled.div`
   position: absolute;
-  bottom: 1rem;
-  left: 50%;
+  top: 1rem;
+  left: 100%;
   transform: translateX(-50%);
   background-color: #e5e2e2;
   border-radius: 100%;
@@ -132,8 +131,9 @@ const ArrowUp = styled.div`
   cursor: pointer;
 
   @media (max-width: 768px){
-    bottom: -5rem;
-    left: 2rem;
+    top: 1rem;
+    left: 90%;
+    z-index: 2;
   }
   
   :hover {

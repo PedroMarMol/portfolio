@@ -97,7 +97,7 @@ const ImageContainer = styled.div`
 
 const ArrowUp = styled.div`
   position: absolute;
-  bottom: 1rem;
+  top: 1rem;
   left: 50%;
   transform: translateX(-50%);
   background-color: #e5e2e2;
@@ -107,8 +107,8 @@ const ArrowUp = styled.div`
   cursor: pointer;
 
   @media (max-width: 768px){
-    bottom: 1.5rem;
-    left: 3rem;
+    top: 3rem;
+    left: 85%;
     z-index: 2;
   }
   
