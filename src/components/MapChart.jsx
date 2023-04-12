@@ -18,7 +18,7 @@ const MapChart = () => {
   // map configuration for phone screens
   const mapSmallScreen = {
     rotate: [-10.0, -52.0, 0],
-    center: [-12, -2],
+    center: [-12, -1],
     scale: 3000
   }
   // Check the initial screen size so the Sphere is well displayed
