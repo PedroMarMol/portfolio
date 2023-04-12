@@ -74,7 +74,9 @@ function PhotoAlbum() {
         <OrbitControls enableZoom={false} autoRotate/>
       </Canvas>
       <InfoContainer>
-        <Button>Deployment</Button>
+        <Button onClick={() => window.open('https://github.com/PedroMarMol/photo_album', '_blank')}>
+          Repository
+        </Button>
         <Info>
           Applied React Toolkit Query and Async Thunk functions knowledge.
         </Info>

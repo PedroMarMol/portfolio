@@ -74,9 +74,11 @@ function TenziesGame() {
         <OrbitControls enableZoom={false} autoRotate/>
       </Canvas>
       <InfoContainer>
-        <Button>Deployment</Button>
+        <Button onClick={() => window.open('https://pedromarmol.github.io/tenzies_project/', '_blank')}>
+          Deployment
+        </Button>
         <Info>
-          Tenzies Game using React.JS and its functionalities.
+          Tenzies Game using React.JS and its main functionalities.
         </Info>
       </InfoContainer>
     </>

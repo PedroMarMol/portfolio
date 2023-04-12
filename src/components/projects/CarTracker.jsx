@@ -74,7 +74,9 @@ function CarTracker() {
         <OrbitControls enableZoom={false} autoRotate/>
       </Canvas>
       <InfoContainer>
-        <Button>Deployment</Button>
+        <Button onClick={() => window.open('https://car-tracker-seven.vercel.app/', '_blank')}>
+          Deployment
+        </Button>
         <Info>
           Multiple slices management with Redux Toolkit.
         </Info>

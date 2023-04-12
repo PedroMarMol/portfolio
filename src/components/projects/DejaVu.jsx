@@ -75,7 +75,9 @@ function DejaVu() {
         <OrbitControls enableZoom={false} autoRotate/>
       </Canvas>
       <InfoContainer>
-        <Button>Deployment</Button>
+        <Button onClick={() => window.open('https://deja-vu-nu.vercel.app/', '_blank')}>
+          Deployment
+        </Button>
         <Info>
             To-Do App made with React, making use of Context, Firebase (Auth and Cloud Firestore), Tailwind and React Router.
         </Info>
