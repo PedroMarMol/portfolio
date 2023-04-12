@@ -1,7 +1,7 @@
 import React from 'react'
 import { OrbitControls, Stage } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import Polaroid from '../3Dmodels/Polaroid'
+import Camera from '../3Dmodels/Camera'
 import styled from 'styled-components'
 
 const Info = styled.p`
@@ -28,7 +28,7 @@ function PhotoAlbum() {
     <>
       <Canvas style={{zIndex: 1}}>
         <Stage environment='city' intensity={0.6}>
-          <Polaroid />
+          <Camera />
         </Stage>
         <OrbitControls enableZoom={false} autoRotate/>
       </Canvas>
