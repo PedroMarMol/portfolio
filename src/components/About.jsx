@@ -94,7 +94,7 @@ const Button = styled.button`
   @media (max-width: 768px) {
     width: calc(35vw + 2vh);
     height: calc(6vh + 1vw);
-    font-size: calc(0.5vw + 2vh);
+    font-size: calc(0.5vw + 1.8vh);
   }
 
   &:hover {
