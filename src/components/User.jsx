@@ -24,6 +24,7 @@ const Container = styled.div`
 `
 const InfoContainer = styled.div`
   letter-spacing: 0.02em;
+  margin-top: -30rem;
   flex: 2;
   display: flex;
   flex-direction: column;
@@ -91,6 +92,7 @@ const Button = styled.button`
 `
 
 const ImageContainer = styled.div`
+  margin-top: -30rem;
   flex: 3;
   position: relative;
   display: flex;
@@ -174,8 +176,8 @@ export const User = () => {
 
   return (
     <Section id="homepage">
-      <Navbar/>
       <Container>
+        <Navbar />
         <InfoContainer>
           <Title>Pedro Martos</Title>
           <WhatIDo>
